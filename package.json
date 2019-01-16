@@ -3,11 +3,24 @@
   "version": "1.0.0",
   "description": "SMS Management Application",
   "main": "api/v1/app.js",
+  "scripts": {
+    "dev": "nodemon --watch api --exec babel-node -- api/v1/app.js"
+  },
   "repository": "https://github.com/larrystone/SMA.git",
   "author": "lawal lanre <lanre.lawal@andela.com>",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^6.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "sequelize": "^4.42.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0",
+    "nodemon": "^1.18.9"
   }
 }
