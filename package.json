@@ -1,0 +1,13 @@
+{
+  "name": "sma",
+  "version": "1.0.0",
+  "description": "SMS Management Application",
+  "main": "api/v1/app.js",
+  "repository": "https://github.com/larrystone/SMA.git",
+  "author": "lawal lanre <lanre.lawal@andela.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "sequelize": "^4.42.0"
+  }
+}
