@@ -4,7 +4,8 @@
   "description": "SMS Management Application",
   "main": "api/v1/app.js",
   "scripts": {
-    "dev": "nodemon --watch api --exec babel-node -- api/v1/app.js"
+    "dev": "nodemon --watch api --exec babel-node -- api/v1/app.js",
+    "test": "mocha api/*/__tests__"
   },
   "repository": "https://github.com/larrystone/SMA.git",
   "author": "lawal lanre <lanre.lawal@andela.com>",
@@ -20,7 +21,11 @@
     "sequelize": "^4.42.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
-    "nodemon": "^1.18.9"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "nyc": "^13.1.0"
   }
 }
