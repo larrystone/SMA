@@ -29,9 +29,7 @@ export default class Messages {
         return sendResponse(res, 422, { error: 'Sender or receiver not available/valid' });
       }
 
-      const data = await Message.create({
-        content, senderId, receiverId,
-      });
+      const data = await Message.create({ content, senderId, receiverId });
 
       return sendResponse(res, 201, { message: 'Message sent', data });
     } catch (error) {
