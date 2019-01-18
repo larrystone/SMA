@@ -4,9 +4,11 @@
   "description": "SMS Management Application",
   "main": "api/v1/app.js",
   "scripts": {
+    "start": "node build/v1/app.js",
     "dev": "nodemon --watch api --exec babel-node -- api/v1/app.js",
     "test": "yarn pre:test && cross-env-shell NODE_ENV=test nyc mocha api/*/__tests__/* --require babel-core/register --exit",
-    "pre:test": "cross-env NODE_ENV=test sequelize db:migrate:undo:all && cross-env NODE_ENV=test sequelize db:migrate"
+    "pre:test": "cross-env NODE_ENV=test sequelize db:migrate:undo:all && cross-env NODE_ENV=test sequelize db:migrate",
+    "heroku-postbuild": "babel -d ./build ./api -s"
   },
   "repository": "https://github.com/larrystone/SMA.git",
   "author": "lawal lanre <lanre.lawal@andela.com>",
