@@ -1,0 +1,1613 @@
+{
+	"info": {
+		"_postman_id": "7574aa50-6f0b-4a71-bcd0-b40b7b215700",
+		"name": "SMA",
+		"description": "A collection of APIs for the SMS Management Application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "New Contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Larrystone Yakov",
+									"description": "Contact's name",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "08029190299",
+									"description": "Contact's Pone number",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/contacts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						},
+						"description": "Create a new contact"
+					},
+					"response": [
+						{
+							"name": "422: Invalid data response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Larrystone Yakov",
+											"description": "Contact's name",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phoneNumber",
+											"value": "08029190299",
+											"description": "Contact's Pone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"29-CG4XVsqjaTcm2yyelVNGbvB+1Kk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:29:25 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid contact data provided\"\n}"
+						},
+						{
+							"name": "201: Created response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Larrystone Yakov",
+											"description": "Contact's name",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "08029190299",
+											"description": "Contact's Pone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"ae-2zQPy6JBXSHjB0VErndCO5oUs1s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:24:20 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"New contact created\",\n    \"data\": {\n        \"name\": \"Larrystone Yakov\",\n        \"phoneNumber\": \"08029190299\",\n        \"updatedAt\": \"2019-01-19T07:24:19.931Z\",\n        \"createdAt\": \"2019-01-19T07:24:19.931Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "All Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/contacts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						},
+						"description": "Get all contacts"
+					},
+					"response": [
+						{
+							"name": "200: OK response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"a4-Yp6TZ9+fUVhKm0emqplmXlhBe5k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:26:10 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"name\": \"Larrystone Yakov\",\n            \"phoneNumber\": \"08029190299\",\n            \"createdAt\": \"2019-01-19T07:24:19.931Z\",\n            \"updatedAt\": \"2019-01-19T07:24:19.931Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/contacts/08029190299",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"contacts",
+								"08029190299"
+							]
+						},
+						"description": "Get a contact by phoneNumber"
+					},
+					"response": [
+						{
+							"name": "404: Not found response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/08029190292",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"08029190292"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-xGxZzW3ulADg6Vu3T8Zo/WzmKj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:58:52 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"contact not found\"\n}"
+						},
+						{
+							"name": "422: Invalid request data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/080291",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"080291"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"29-DXPDb6y3937od8HLh1c8GrG9Z8s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:59:16 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid Phone Number provided\"\n}"
+						},
+						{
+							"name": "200: OK response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/08029190299",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"08029190299"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "168"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"a8-77pO6r8kubNidz2ZSA1a+xcZtC0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:32:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Contact found\",\n    \"data\": {\n        \"name\": \"Larrystone Yakov\",\n        \"phoneNumber\": \"08029190299\",\n        \"createdAt\": \"2019-01-19T07:24:19.931Z\",\n        \"updatedAt\": \"2019-01-19T07:24:19.931Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Contact",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"description": "Contact's name",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "07029190298",
+									"description": "Contact's Pone number",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/contacts/08029190299",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"contacts",
+								"08029190299"
+							]
+						},
+						"description": "Update a contact record by phoneNumber"
+					},
+					"response": [
+						{
+							"name": "200: OK response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "John Doe",
+											"description": "Contact's name",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "07029190298",
+											"description": "Contact's Pone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/08029190299",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"08029190299"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"a2-5NGviNlgyShjdrXvCcUQ9VMdObE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:34:17 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Contact updated\",\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"phoneNumber\": \"07029190298\",\n        \"createdAt\": \"2019-01-19T07:24:19.931Z\",\n        \"updatedAt\": \"2019-01-19T07:34:17.761Z\"\n    }\n}"
+						},
+						{
+							"name": "422: Invalid data response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "John Doe",
+											"description": "Contact's name",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phoneNumber",
+											"value": "07029190298",
+											"description": "Contact's Pone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/08029190299",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"08029190299"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"29-CG4XVsqjaTcm2yyelVNGbvB+1Kk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 08:05:22 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid contact data provided\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/contacts/07029190298",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"contacts",
+								"07029190298"
+							]
+						},
+						"description": "Delete a contact by phoneNumber"
+					},
+					"response": [
+						{
+							"name": "422: Invalid request data",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/070291",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"070291"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"29-DXPDb6y3937od8HLh1c8GrG9Z8s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 08:02:02 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid Phone Number provided\"\n}"
+						},
+						{
+							"name": "404: Not found response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/08029190296",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"08029190296"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-xGxZzW3ulADg6Vu3T8Zo/WzmKj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 08:02:44 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"contact not found\"\n}"
+						},
+						{
+							"name": "200: OK response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/contacts/07029190298",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"contacts",
+										"07029190298"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:37:07 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Contact related endpoints",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5846baab-a54d-4044-8c50-647a736823aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a364516-8cdf-4d59-8f84-16e712863f8b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "New Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hello there",
+									"description": "Message content",
+									"type": "text"
+								},
+								{
+									"key": "senderId",
+									"value": "08029190291",
+									"description": "Sender's phone number",
+									"type": "text"
+								},
+								{
+									"key": "receiverId",
+									"value": "08029190299",
+									"description": "Receiver's phone number",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"messages"
+							]
+						},
+						"description": "Create a new message"
+					},
+					"response": [
+						{
+							"name": "422: Invalid body response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "content",
+											"value": "Hello there",
+											"description": "Message content",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "senderId",
+											"value": "08029190291",
+											"description": "Sender's phone number",
+											"type": "text"
+										},
+										{
+											"key": "receiverId",
+											"value": "08029190299",
+											"description": "Receiver's phone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"29-0e+QCOMDJep0A3amiLdTiqi1K+M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:54:39 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid Message Data provided\"\n}"
+						},
+						{
+							"name": "422: Invalid sender or receiver id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "content",
+											"value": "Hello there",
+											"description": "Message content",
+											"type": "text"
+										},
+										{
+											"key": "senderId",
+											"value": "08029190295",
+											"description": "Sender's phone number",
+											"type": "text"
+										},
+										{
+											"key": "receiverId",
+											"value": "08029190299",
+											"description": "Receiver's phone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"32-Y6c1UZsjT9ZF6ffTnmIxWCGszr8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:55:15 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Sender or receiver not available/valid\"\n}"
+						},
+						{
+							"name": "201: Created reponse",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "content",
+											"value": "Hello there",
+											"description": "Message content",
+											"type": "text"
+										},
+										{
+											"key": "senderId",
+											"value": "08029190291",
+											"description": "Sender's phone number",
+											"type": "text"
+										},
+										{
+											"key": "receiverId",
+											"value": "08029190299",
+											"description": "Receiver's phone number",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"aa-fYZtj5+jlfcrPGxMwsSqnm+W3pE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:42:44 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Message sent\",\n    \"data\": {\n        \"status\": \"sent\",\n        \"id\": 1,\n        \"content\": \"Hello there\",\n        \"senderId\": \"08029190291\",\n        \"receiverId\": \"08029190299\",\n        \"sentAt\": \"2019-01-19T07:42:44.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "All Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"messages"
+							]
+						},
+						"description": "Get all messages"
+					},
+					"response": [
+						{
+							"name": "200: Success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"a7-PQRU/G7Q/7aqk+fsjreZO3mWPh0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:56:52 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"content\": \"Hello there\",\n            \"status\": \"read\",\n            \"sentAt\": \"2019-01-19T07:42:44.000Z\",\n            \"senderId\": \"08029190291\",\n            \"receiverId\": \"08029190299\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/messages/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"messages",
+								"1"
+							]
+						},
+						"description": "Get a message by its ID"
+					},
+					"response": [
+						{
+							"name": "404: Not found response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages/08029190291",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages",
+										"08029190291"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-guIAbjmFTCDD3YgMKiwGfDp1z0g\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:53:11 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Message not found\"\n}"
+						},
+						{
+							"name": "200: OK Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"f3-9D1dkr6W3e0DJf4FNrO+nt0oHYM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:46:34 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Message found\",\n    \"data\": {\n        \"id\": 1,\n        \"content\": \"Hello there\",\n        \"status\": \"read\",\n        \"sentAt\": \"2019-01-19T07:42:44.000Z\",\n        \"sender\": {\n            \"name\": \"John Doe\",\n            \"phoneNumber\": \"08029190291\"\n        },\n        \"receiver\": {\n            \"name\": \"Larrystone Yakov\",\n            \"phoneNumber\": \"08029190299\"\n        }\n    }\n}"
+						},
+						{
+							"name": "422: Bad Request response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/messages/a",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"messages",
+										"a"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"27-yDU4FkgpDp63UHCBVUVysByFZYg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Jan 2019 07:52:12 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid Message Id provided\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Message related endpoints",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "56fed6ab-d91a-41af-94f6-2033fa1acd96",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "402749cd-6539-4897-ba51-9f233ddc2ff4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "010cb983-50ce-4afb-855c-ae13790b448b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a3bfa1b2-58af-467e-a572-30cabcfcd4df",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7a98b053-3db6-4f31-8d88-8541ab27b1d5",
+			"key": "baseUrl",
+			"value": "https://larrystone-sma.herokuapp.com/api",
+			"type": "string"
+		}
+	]
+}

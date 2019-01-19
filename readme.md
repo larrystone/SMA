@@ -7,6 +7,7 @@ SMA is a collection of APIs for the SMS Management Application.
 https://larrystone-sma.herokuapp.com
 
 ## API Documentation
+- [v1](https://larrystone-sma.herokuapp.com/api/v1/docs)
 
 
 ## Installation 
